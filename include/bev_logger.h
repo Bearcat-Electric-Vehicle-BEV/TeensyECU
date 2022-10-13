@@ -8,17 +8,17 @@
 
 enum LogLevel{
     INFO = 0,
+    WARNING,
     ERROR,
     CRITICAL,
-    WARNING,
-    NUM_LOG_LEVELS,
+    NUM_LOG_LEVELS
 };
 
 const char *LEVEL_STRING[NUM_LOG_LEVELS] = {
     "INFO",
-    "ERROR",
-    "CRITICAL",
     "WARNING",
+    "ERROR",
+    "CRITICAL"
 };
 
 class Bev_Logger {
