@@ -43,13 +43,13 @@ void Bev_Logger::critical(const char* string) {
 }
 
 void Bev_Logger::print(LogLevel level, const char *string) {
-    static char buffer[120];
+    static char buffer[100];
     
     #ifdef DEBUG_BEV
     Serial.println(string);
     #endif
 
-    if (snprintf(buffer, 100, "%s:%s", LEVEL_STRING[level], string) >= 0)
+    if (snprintf(buffer, 100, "%i:%s:%s", millis(), LEVEL_STRING[level], string) >= 0)
     {
       WriteToSD(buffer, "EVENT.log");
     }
@@ -63,7 +63,7 @@ void Bev_Logger::print(const CAN_message_t &msg) {
     CAN2Str(msg, buffer, 100);
     Serial.println(buffer);
     #endif
-
+    // EVERY CAN message
     WriteToSD(msg, "CAN.log");
 }
 
@@ -166,5 +166,23 @@ void WriteToSD(const CAN_message_t &msg, const char* fname){
 //     printDirectory(root, 0);
 // }
 
+TaskHandle_t pxLoggerHandle;
 
+void vLogger(__attribute__((unused)) void * pvParameters){
+  
+  Log.info("Logger task started");
+
+  TickType_t xLastWakeTime;
+  const TickType_t xFrequency = pdMS_TO_TICKS(2500);
+
+  // Initialise the xLastWakeTime variable with the current time.
+  xLastWakeTime = xTaskGetTickCount();
+
+  for(;;){
+
+
+
+    vTaskDelayUntil(&xLastWakeTime, xFrequency);
+  }
+}
 

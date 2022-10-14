@@ -35,9 +35,10 @@ private:
 };
 
 extern Bev_Logger Log;
+extern TaskHandle_t pxLoggerHandle;
 
 void WriteToSD(const char* dataString, const char* fname);
 void WriteToSD(const CAN_message_t &msg, const char* fname);
-
+void vLogger(__attribute__((unused)) void * pvParameters);
 
 #endif // BEV_LOGGER_H
