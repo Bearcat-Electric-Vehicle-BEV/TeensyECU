@@ -179,8 +179,16 @@ void vLogger(__attribute__((unused)) void * pvParameters){
   xLastWakeTime = xTaskGetTickCount();
 
   for(;;){
-
-
+    // tire temps
+    // brake temps?
+    // brake position
+    // brake pressure
+    // suspension position
+    // motor speed
+    // steering angle?
+    // accel position
+    // inertial data
+    // GNSS?
 
     vTaskDelayUntil(&xLastWakeTime, xFrequency);
   }
