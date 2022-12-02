@@ -6,7 +6,7 @@ typedef uint8_t pin_t;
 #define PIN_VEHICLE_PWR 2
 #define PIN_Brake_Light 5
 #define PIN_ECU_OK 9
-#define PIN_PRECHARGE_FINISHED 10
+#define PIN_PRECHARGE_FINISHED 3
 #define PIN_READY_TO_GO 11
 #define PIN_SHUTDOWN_TTL_OK 12
 #define PIN_CAN1_RX 23
